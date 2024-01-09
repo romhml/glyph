@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Pont",
+  "description": "Pont is a browser extension that autofills email verification codes.",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": ["activeTab", "scripting", "commands"],
+  "host_permissions": ["<all_urls>"],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*.js", "assets/*.css"],
+      "matches": ["*://*/*"]
+    }
+  ],
+  "commands": {
+    "autofill": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
+      },
+      "description": "Autofill email verification codes."
+    }
+  }
+}

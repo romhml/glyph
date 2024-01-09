@@ -1,0 +1,33 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".env", "**/.env.*local"],
+  "globalEnv": ["NODE_ENV", "NUXT_*"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".output/**"]
+    },
+    "//#_prettier": {
+      "cache": true
+    },
+    "format": {
+      "dependsOn": ["//#_prettier", "^format"]
+    },
+    "//#_eslint": {
+      "cache": true
+    },
+    "lint": {
+      "dependsOn": ["//#_eslint", "^lint"]
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck"]
+    },
+    "check": {
+      "dependsOn": ["format", "lint", "typecheck"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

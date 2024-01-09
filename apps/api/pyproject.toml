@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "pont-api"
+version = "0.0.0"
+description = "Pont API"
+authors = ["Romain Hamel <rom.hml@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.108.0"
+google-api-python-client = "^2.113.0"
+google-auth-httplib2 = "^0.2.0"
+google-auth-oauthlib = "^1.2.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.11"
+uvicorn = "^0.25.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

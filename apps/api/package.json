@@ -1,0 +1,9 @@
+{
+  "name": "@pont/api",
+  "scripts": {
+    "install": "poetry install",
+    "dev": "poetry run uvicorn main:app --reload",
+    "format": "poetry run ruff format",
+    "lint": "poetry run ruff check"
+  }
+}
