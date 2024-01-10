@@ -7,7 +7,7 @@
     "default_popup": "index.html"
   },
   "background": {
-    "service_worker": "service-worker.js"
+    "service_worker": "service-worker"
   },
   "permissions": ["activeTab", "scripting", "commands"],
   "host_permissions": ["<all_urls>"],
