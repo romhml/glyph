@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pont-api"
+name = "pont"
 version = "0.0.0"
 description = "Pont API"
 authors = ["Romain Hamel <rom.hml@gmail.com>"]
@@ -10,6 +10,8 @@ fastapi = "^0.108.0"
 google-api-python-client = "^2.113.0"
 google-auth-httplib2 = "^0.2.0"
 google-auth-oauthlib = "^1.2.0"
+requests = "^2.31.0"
+pydantic-settings = "^2.1.0"
 
 
 [tool.poetry.group.dev.dependencies]

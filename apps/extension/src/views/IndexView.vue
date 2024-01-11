@@ -1,15 +1,14 @@
 <script setup lang="ts">
+import DefaultLayout from '@/components/layouts/DefaultLayout.vue'
 import { ClipboardDocumentIcon, ClipboardDocumentCheckIcon } from '@heroicons/vue/24/outline'
-
 import { useClipboard } from '@vueuse/core'
 import { ref, computed, onMounted } from 'vue'
-import { usePont } from '@/composables/usePont'
+import { useCodes } from '@/composables/useCodes'
+import BaseButton from '@/components/ui/button/BaseButton.vue'
 
-const { fetching, codes, registerEventHandlers, fetchCodes, autofill } = usePont()
+const { codes, fetchCodes, autofill } = useCodes()
 
 onMounted(async () => {
-  // TODO: Remove next line when event handlers are moved to service worker
-  registerEventHandlers()
   await fetchCodes()
 })
 
@@ -27,35 +26,33 @@ function copyCodeToClipboard(code: string) {
 </script>
 
 <template>
-  <div>
+  <DefaultLayout>
     <div v-if="latestCode" class="flex">
       <button
-        class="py-2 flex items-center shadow px-2 rounded border border-zinc-200 cursor-pointer hover:bg-zinc-50 transition w-full"
+        class="py-2 flex shadow items-center px-3 rounded border border-slate-200 cursor-pointer hover:bg-slate-50 transition w-full"
         @click="autofill(latestCode.code)"
       >
-        <div class="flex flex-col w-full">
-          <p class="uppercase font-semibold text-lg text-zinc-700">{{ latestCode.code }}</p>
-          <p class="text-xs font-medium text-zinc-500">
+        <div class="w-full text-left">
+          <p class="uppercase font-semibold text-lg text-slate-700">{{ latestCode.code }}</p>
+          <p class="text-xs font-medium text-slate-500">
             {{ latestCode.sender?.replace(/<.*>/g, '').trim() }}
           </p>
         </div>
 
-        <button
+        <BaseButton
+          variant="ghost"
+          size="icon"
           @click.prevent="copyCodeToClipboard(latestCode.code)"
-          class="p-1 cursor-pointer transition hover:bg-zinc-200 rounded-full"
         >
           <Transition mode="out-in">
-            <ClipboardDocumentCheckIcon v-if="copied" key="copied" class="w-5 h-5 text-zinc-500" />
-            <ClipboardDocumentIcon v-else key="not-copied" class="w-5 h-5 text-zinc-500" />
+            <ClipboardDocumentCheckIcon v-if="copied" key="copied" class="w-5 h-5 text-slate-500" />
+            <ClipboardDocumentIcon v-else key="not-copied" class="w-5 h-5 text-slate-500" />
           </Transition>
-        </button>
+        </BaseButton>
       </button>
     </div>
-    <div v-else-if="fetching" class="flex items-center justify-center h-16">
-      <p class="text-center text-zinc-500 animate-pulse">Fetching codes...</p>
-    </div>
     <div v-else>
-      <p class="text-center text-zinc-500">No codes found</p>
+      <p class="text-center text-slate-500">No codes found</p>
     </div>
-  </div>
+  </DefaultLayout>
 </template>

@@ -9,7 +9,16 @@
   "background": {
     "service_worker": "service-worker"
   },
-  "permissions": ["activeTab", "scripting", "commands"],
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "identity",
+    "scripting",
+    "webRequest",
+    "cookies",
+    "contextMenus"
+  ],
   "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {
