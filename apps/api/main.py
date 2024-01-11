@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
-from pont.routes import auth, codes
+from glyth.routes import auth, codes
 
 app = FastAPI()
 

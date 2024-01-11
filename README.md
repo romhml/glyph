@@ -1,6 +1,6 @@
-# Pont
+# Glyph
 
-Pont is a browser extension that autofills email verification codes.
+Glyph is a browser extension that autofills email verification codes.
 
 # Contributing
 

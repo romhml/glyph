@@ -46,17 +46,17 @@ async function autofillChrome(code?: string) {
       ) as NodeListOf<HTMLInputElement>
 
       if (!input && segmentedInputs.length === 0) {
-        console.log('Pont: No input found')
+        console.log('Glyth: No input found')
         return
       }
 
       if (segmentedInputs.length > 0) {
-        console.log('Pont: Detected segmented inputs', segmentedInputs)
+        console.log('Glyth: Detected segmented inputs', segmentedInputs)
         segmentedInputs.forEach((el, i) => {
           el.value = code[i]
         })
       } else if (input) {
-        console.log('Pont: Detected input', input)
+        console.log('Glyth: Detected input', input)
         input.value = code
       }
     },

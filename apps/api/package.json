@@ -1,5 +1,5 @@
 {
-  "name": "@pont/api",
+  "name": "@glyth/api",
   "scripts": {
     "install": "poetry install",
     "dev": "poetry run uvicorn main:app --reload",

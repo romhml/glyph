@@ -1,5 +1,5 @@
 {
-  "name": "pont",
+  "name": "Glyph",
   "packageManager": "bun@1.0.21",
   "workspaces": [
     "packages/*",

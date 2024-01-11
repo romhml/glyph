@@ -21,7 +21,7 @@ async function onSignIn(provider: string) {
 
 <template>
   <div class="flex flex-col justify-center w-60 py-2 px-2">
-    <p class="text-center mb-2 font-bold text-lg">Pont</p>
+    <p class="text-center mb-2 font-bold text-lg">Glyth</p>
     <BaseButton variant="outline" @click="onSignIn('google')"> Sign in with Google </BaseButton>
   </div>
 </template>

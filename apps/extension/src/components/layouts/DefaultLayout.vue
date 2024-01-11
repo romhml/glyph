@@ -25,7 +25,7 @@ async function refreshCodes() {
 <template>
   <div class="w-60 flex flex-col items-center rounded">
     <nav class="flex items-center justify-between py-2 mb-3 w-full px-4 border-b border-gray-100">
-      <h1 class="text-lg font-bold">Pont</h1>
+      <h1 class="text-lg font-bold">Glyth</h1>
       <div class="flex items-center space-x-1 justify-end">
         <BaseButton variant="ghost" size="icon" :disabled="fetching" @click="refreshCodes()">
           <Transition mode="out-in">

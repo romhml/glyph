@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "pont"
+name = "Glyth"
 version = "0.0.0"
-description = "Pont API"
+description = "Glyth API"
 authors = ["Romain Hamel <rom.hml@gmail.com>"]
 
 [tool.poetry.dependencies]
