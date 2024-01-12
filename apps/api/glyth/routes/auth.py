@@ -1,7 +1,8 @@
 import requests
 from fastapi import APIRouter, HTTPException
-from glyth.settings import settings
 from pydantic import BaseModel
+
+from glyth.settings import settings
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 

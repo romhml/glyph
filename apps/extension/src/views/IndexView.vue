@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import DefaultLayout from '@/components/layouts/DefaultLayout.vue'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import { ClipboardDocumentIcon, ClipboardDocumentCheckIcon } from '@heroicons/vue/24/outline'
 import { useClipboard } from '@vueuse/core'
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import { useCodes } from '@/composables/useCodes'
 import BaseButton from '@/components/ui/button/BaseButton.vue'
 
-const { codes, fetchCodes, autofill } = useCodes()
+const { codes, loadCodes, autofill } = useCodes()
+await loadCodes()
 
-onMounted(async () => {
-  await fetchCodes()
-})
-
-const latestCode = computed(() => codes?.value[0])
+const latestCode = computed(() => codes?.value?.[0])
 const { copy } = useClipboard()
 
 const copied = ref(false)

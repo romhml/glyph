@@ -68,7 +68,8 @@ export function useAuth() {
 
     signOut() {
       currentUser.value = null
-      storageApi.sync.remove('currentUser')
+      storageApi.sync.clear()
+      storageApi.local.clear()
     },
 
     async signIn(provider: string) {

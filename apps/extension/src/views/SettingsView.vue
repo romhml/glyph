@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAuth } from '@/composables/useAuth'
 import BaseButton from '@/components/ui/button/BaseButton.vue'
-import PageLayout from '@/components/layouts/PageLayout.vue'
+import PageLayout from '@/layouts/PageLayout.vue'
 import BaseAvatar from '@/components/ui/avatar/BaseAvatar.vue'
 
 import { useRouter } from 'vue-router'

@@ -61,7 +61,7 @@ async def codes(
 
     service = build("gmail", "v1", credentials=credentials)
 
-    qtime = int(time.time() - 60 * 500)  # 10 minutes ago
+    qtime = int(time.time() - 60 * 10)  # 10 minutes ago
 
     try:
         results = (

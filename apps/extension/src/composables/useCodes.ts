@@ -1,6 +1,8 @@
 import { ref } from 'vue'
 import { useAuth } from './useAuth'
 
+const storageApi = chrome?.storage // || browser.storage
+
 export type AuthCode = {
   code: string
   sender?: string
@@ -22,8 +24,18 @@ async function fetchCodes(): Promise<AuthCode[]> {
   const data = await response.json()
 
   codes.value = data
+  await storageApi.sync.set({ codes: data })
 
   return data
+}
+
+async function loadCodes() {
+  return new Promise((resolve) => {
+    storageApi.sync.get((result: any) => {
+      codes.value = result.codes
+      resolve(undefined)
+    })
+  })
 }
 
 async function getCurrentChromeTab() {
@@ -35,6 +47,7 @@ async function getCurrentChromeTab() {
 
 async function autofillChrome(code?: string) {
   const tab = await getCurrentChromeTab()
+  console.log(tab)
 
   chrome.scripting.executeScript({
     target: { tabId: tab.id || chrome.tabs.TAB_ID_NONE },
@@ -72,6 +85,7 @@ async function autofill(code: string) {
 
 export function useCodes() {
   return {
+    loadCodes,
     codes,
     fetchCodes,
     autofill
