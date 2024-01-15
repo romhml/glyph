@@ -48,8 +48,8 @@ function copyCodeToClipboard(code: string) {
         </BaseButton>
       </button>
     </div>
-    <div v-else>
-      <p class="text-center text-slate-500">No codes found</p>
+    <div v-else class="flex flex-col jusitfy-center items-center text-center py-5">
+      <p class="text-center text-md text-slate-500">No codes found</p>
     </div>
   </DefaultLayout>
 </template>
